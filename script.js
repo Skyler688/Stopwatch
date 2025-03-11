@@ -3,7 +3,6 @@ const times = document.getElementById("times");
 
 var start = document.getElementById("start");
 var stop = document.getElementById("stop");
-stop.disable = true;
 
 let timing = false;
 let sec = 0;
@@ -86,9 +85,9 @@ function appendTime() {
   logs++;
   const logTime = document.createElement("p");
   if (day === 0) {
-    logTime.innerText = `Time ${logs}: ${timerHour}:${timerMin}:${timerSec}`;
+    logTime.innerText = `Time-${logs} = ${timerHour}:${timerMin}:${timerSec}`;
   } else {
-    logTime.innerText = `Time ${logs}: ${timerDay}:${timerHour}:${timerMin}:${timerSec}`;
+    logTime.innerText = `Time-${logs} = ${timerDay}:${timerHour}:${timerMin}:${timerSec}`;
   }
   times.appendChild(logTime);
 }
