@@ -1,7 +1,10 @@
 const timer = document.getElementById("timer");
+const times = document.getElementById("times");
+
 var start = document.getElementById("start");
 var stop = document.getElementById("stop");
 stop.disable = true;
+
 let timing = false;
 let sec = 0;
 let min = 0;
@@ -10,6 +13,7 @@ let day = 0;
 let timerSec = "";
 let timerMin = "";
 let timerHour = "";
+let logs = 0;
 let lastTime = performance.now();
 
 displayTime();
@@ -68,6 +72,7 @@ function startTimer() {
 }
 
 function stopTimer() {
+  appendTime();
   start.disabled = false;
   stop.disabled = true;
   sec = 0;
@@ -75,4 +80,15 @@ function stopTimer() {
   hour = 0;
   timer.textContent = "00:00:00";
   timing = false;
+}
+
+function appendTime() {
+  logs++;
+  const logTime = document.createElement("p");
+  if (day === 0) {
+    logTime.innerText = `Time ${logs}: ${timerHour}:${timerMin}:${timerSec}`;
+  } else {
+    logTime.innerText = `Time ${logs}: ${timerDay}:${timerHour}:${timerMin}:${timerSec}`;
+  }
+  times.appendChild(logTime);
 }
